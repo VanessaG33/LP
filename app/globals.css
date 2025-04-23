@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171717;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-nunito);
+}
+
+.h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.h2 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.h5 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.p1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.p2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.white-btn {
+  background: #fff;
+  color: #000;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .h1 {
+    font-size: 24px;
+  }
+
+  .h2 {
+    font-size: 20px;
+  }
+
+  .h3 {
+    font-size: 18px;
+  }
+
+  .h4 {
+    font-size: 16px;
+  }
+
+  .h5 {
+    font-size: 14px;
+  }
+}
