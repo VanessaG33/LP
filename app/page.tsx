@@ -1,21 +1,31 @@
 import Brands from "@/components/Brands";
+import Faq from "@/components/Faq";
 import Grid from "@/components/Grid";
+import Pricing from "@/components/Pricing";
 import Roadmap from "@/components/Roadmap";
 import ThreeCards from "@/components/ThreeCards";
+import { Testimonials } from "@/components/ui/testimonials";
 import VideoTop from "@/components/VideoTop";
+import VideoTopAvis from "@/components/VideoTopAvis";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import {
   avisQuery,
+  faqQuery,
   homeQuery,
   obstaclesQuery,
+  offreQuery,
   roadmapQuery,
+  startNowQuery,
   trustmeQuery,
 } from "@/sanity/lib/query";
 import {
   Avis,
+  FaqType,
   HomeData,
   Obstacles,
+  Offre,
   RoadmapType,
+  StartNow,
   TrustMe,
 } from "@/sanity/lib/type";
 import { PortableText } from "@portabletext/react";
@@ -47,6 +57,21 @@ export default async function Home() {
   const avis: Avis = await sanityFetch({
     query: avisQuery,
     tags: ["avis"],
+  });
+
+  const priceData: Offre = await sanityFetch({
+    query: offreQuery,
+    tags: ["offre"],
+  });
+
+  const faqData: FaqType = await sanityFetch({
+    query: faqQuery,
+    tags: ["faq"],
+  });
+
+  const startNow: StartNow = await sanityFetch({
+    query: startNowQuery,
+    tags: ["startNow"],
   });
 
   return (
@@ -155,33 +180,114 @@ export default async function Home() {
           {roadmapData.buttonText}
         </button>
       </div>
-      <div>
-        <p>title</p>
-        <div>array of image, name, description</div>
-        <video src="video.url"></video>
-        <div>array2 of image, name, description</div>
+      <div className="mt-[130px]">
+        <div className="flex flex-col items-center">
+          {trustme.image1 && (
+            <Image
+              src={trustme.image1}
+              alt={trustme.title}
+              width={280}
+              height={60}
+              className="mt-6"
+            />
+          )}
+          <div className="mt-1 flex gap-1">
+            <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
+            <p className="text-white">{trustme.text}</p>
+          </div>
+          <p className="h2 mt-[35px]">{avis.title}</p>
+          <div className="flex gap-[40px] justify-center mt-[30px]">
+            <Testimonials data={avis.testimonials} />
+            <div className="w-[400px] h-[650px]">
+              <VideoTopAvis videoUrl={avis.video} />
+            </div>
+            <Testimonials data={avis.moreTestimonials} />
+          </div>
+        </div>
+      </div>
+      <Pricing price={priceData} />
+      <div className="flex justify-center items-center gap-[100px]">
+        <div className="max-w-[750px] ">
+          <p className="h2">{faqData.title}</p>
+          <div className="mt-6 p1">
+            <PortableText value={faqData.description} />
+          </div>
+          <button className="white-btn mt-6">{faqData.buttonText}</button>
+        </div>
+        <Faq data={faqData.questions} />
+      </div>
+      <div className="flex flex-col items-center">
+        <Image
+          src={trustme.image1}
+          alt={trustme.title}
+          width={280}
+          height={60}
+          className="mt-6"
+        />
+        <p className="text-white">{trustme.text}</p>
+        <p className="h2 mt-6">{startNow.title}</p>
+        <div className="mt-[20px] text-center max-w-[790px]">
+          <PortableText value={startNow.description} />
+        </div>
+        <button className="white-btn mt-6">{startNow.buttonText}</button>
+      </div>
+      <div className="mt-[150px] flex gap-[130px] justify-center">
+        <div className="max-w-[600px]">
+          <p className="h2">{startNow.title2}</p>
+          <div className="p1 mt-[20px] ">
+            <PortableText value={startNow.description2} />
+          </div>
+          <div className="mt-6">
+            {startNow.features.map((feature, index) => (
+              <div key={index} className="flex items-center gap-2 pb-4">
+                <Image
+                  src="/icons/check.svg"
+                  alt={"check"}
+                  width={18}
+                  height={18}
+                />
+                <p>{feature}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div className="mt-[180px] flex flex-col items-center pb-[150px]">
+        <Image
+          src={"/logo.svg"}
+          alt={"vanessa conciergerie"}
+          width={80}
+          height={60}
+        />
+        <div className="flex gap-8 mt-6">
+          <p className="text-sm text-[#D4D4D4]">Fonctionnement</p>
+          <p className="text-sm text-[#D4D4D4]">Résultat accompagnement</p>
+          <p className="text-sm text-[#D4D4D4]">A propos</p>
+        </div>
+        <div className="mt-6 flex gap-2">
+          <Image
+            src={"/icons/instagram.svg"}
+            alt={"vanessa instagram"}
+            width={24}
+            height={24}
+          />
+          <Image
+            src={"/icons/youtube.svg"}
+            alt={"vanessa youtube"}
+            width={32}
+            height={60}
+          />
+        </div>
+        <div className="mt-6">
+          <p className="text-sm text-[#D4D4D4]">
+            Réalisé par :{" "}
+            <a target="_blank" href="https://la-landing.fr/">
+              <u>LaLanding</u>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="flex flex-col items-center">
-{trustme.image1 && (
-  <Image
-    src={trustme.image1}
-    alt={trustme.title}
-    width={280}
-    height={60}
-    className="mt-6"
-  />
-)}
-<div className="mt-1 flex gap-1">
-  <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
-  <p className="text-black">{trustme.text}</p>
-</div>
-<p className="h2"></p>
-
-<Testimonials />
-</div> */
 }

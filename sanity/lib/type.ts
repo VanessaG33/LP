@@ -52,6 +52,7 @@ export interface RoadmapType {
 }
 
 export interface Testimonial {
+  length: number;
   image: string;
   name: string;
   description: any[]; // Portable Text
@@ -62,4 +63,41 @@ export interface Avis {
   testimonials: Testimonial[];
   video: string;
   moreTestimonials: Testimonial[];
+}
+export interface Offre {
+  _id: string;
+  title: string;
+  title2: string;
+  sub1: string;
+  sub1List: string[];
+  sub2: string;
+  sub2List: string[];
+  sub3: string;
+  sub3List: string[];
+  titleAvis: string;
+  tooltip: string;
+  textButton: string;
+  videoAvis: string;
+  videoAvisImage: string;
+}
+export interface FaqQuestion {
+  question: string;
+  answer: PortableTextBlock[];
+}
+
+export interface FaqType {
+  title: string;
+  buttonText: string;
+  description: PortableTextBlock[];
+  questions: FaqQuestion[];
+}
+
+export interface StartNow {
+  title: string;
+  description: PortableTextBlock[];
+  buttonText: string;
+  title2: string;
+  description2: PortableTextBlock[];
+  features: string[];
+  calendly: string;
 }
