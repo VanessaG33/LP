@@ -2,6 +2,7 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { trustmeQuery } from "@/sanity/lib/query";
 import { Offre, TrustMe } from "@/sanity/lib/type";
 import Image from "next/image";
+import Link from "next/link";
 import Brands from "./Brands";
 import BrandsPrice from "./BrandsPrice";
 import VideoTopAvis from "./VideoTopAvis";
@@ -74,7 +75,9 @@ export default async function Pricing({ price }: PricingProps) {
           </div>
 
           <div className="mt-8">
-            <button>button</button>
+            <Link href="#call">
+              <button>button</button>
+            </Link>
           </div>
 
           <div className="mt-8">
@@ -145,9 +148,11 @@ export default async function Pricing({ price }: PricingProps) {
               </div>
 
               <div className="mt-12">
-                <button className="white-btn w-[330px]">
-                  {price?.textButton}
-                </button>
+                <Link href="#call">
+                  <button className="white-btn w-[330px]">
+                    {price?.textButton}
+                  </button>
+                </Link>
               </div>
               <div className="flex gap-3 justify-start items-center mt-4 mb-[20px]">
                 <Image

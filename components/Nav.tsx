@@ -7,10 +7,10 @@ import Link from "next/link";
 import React from "react";
 
 const menuItems = [
-  { name: "Fonctionnement", href: "#link" },
-  { name: "Résultat accompagnement", href: "#link" },
-  { name: "Prix", href: "#link" },
-  { name: "A propos", href: "#link" },
+  { name: "Fonctionnement", href: "#roadmap" },
+  { name: "Résultat accompagnement", href: "#results" },
+  { name: "Prix", href: "#price" },
+  { name: "A propos", href: "#faq" },
 ];
 
 export default function Nav() {
@@ -89,7 +89,7 @@ export default function Nav() {
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 <Button asChild variant="contained" size="sm">
-                  <Link href="#">
+                  <Link href="#call">
                     <span>Je lance ma conciergerie</span>
                   </Link>
                 </Button>

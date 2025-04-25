@@ -33,6 +33,7 @@ import {
 } from "@/sanity/lib/type";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const revalidate = 10;
 
@@ -113,9 +114,9 @@ export default async function Home() {
               </div>
             ))}
           </div>
-          <button className="white-btn mt-[50px]">
-            <a href={home.cta}>{home.button}</a>
-          </button>
+          <Link href="#call">
+            <button className="white-btn mt-[50px]">{home.button}</button>
+          </Link>
         </div>
         <div>
           <VideoTop videoUrl={"https://www.youtube.com/watch?v=dIRIYCt6g8Y"} />
@@ -210,9 +211,11 @@ export default async function Home() {
             </div>
           ))}
         </div>
-        <button className="w-[450px] mt-[70px] white-btn">
-          {obstacles.buttonText}
-        </button>
+        <Link href="#call">
+          <button className="w-[450px] mt-[70px] white-btn">
+            {obstacles.buttonText}
+          </button>
+        </Link>
         <Image
           src={trustme.image1}
           alt={trustme.title}
@@ -237,8 +240,9 @@ export default async function Home() {
         </p>
 
         <Features data={howItWorks.steps} />
-
-        <button className="white-btn mt-6">{howItWorks.buttonText}</button>
+        <Link href="#call">
+          <button className="white-btn mt-6">{howItWorks.buttonText}</button>
+        </Link>
         <Image
           src={trustme.image1}
           alt={trustme.title}
@@ -248,15 +252,19 @@ export default async function Home() {
         />
         <div className="mt-1 flex gap-1">
           <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
-          <p className="text-white">{trustme.text}</p>
+          <p id="roadmap" className="text-white">
+            {trustme.text}
+          </p>
         </div>
       </div>
 
       <Roadmap data={roadmapData} />
       <div className="flex justify-center">
-        <button className="text-center w-[450px] white-btn">
-          {roadmapData.buttonText}
-        </button>
+        <Link href="#call">
+          <button id="results" className="text-center w-[450px] white-btn">
+            {roadmapData.buttonText}
+          </button>
+        </Link>
       </div>
       <div className="mt-[130px]">
         <div className="flex flex-col items-center">
@@ -283,7 +291,9 @@ export default async function Home() {
           </div>
         </div>
       </div>
+      <div id="price"></div>
       <Pricing price={priceData} />
+      <div id="faq"></div>
       <div className="flex justify-center items-center gap-[100px] mb-[100px]">
         <div className="max-w-[750px] ">
           <div className="flex flex-wrap gap-2 items-center">
@@ -297,7 +307,9 @@ export default async function Home() {
           <div className="mt-6 p1">
             <PortableText value={faqData.description} />
           </div>
-          <button className="white-btn mt-6">{faqData.buttonText}</button>
+          <Link href="#call">
+            <button className="white-btn mt-6">{faqData.buttonText}</button>
+          </Link>
         </div>
         <Faq data={faqData.questions} />
       </div>
@@ -319,7 +331,11 @@ export default async function Home() {
         <div className="mt-[20px] text-center max-w-[790px]">
           <PortableText value={startNow.description} />
         </div>
-        <button className="white-btn mt-6">{startNow.buttonText}</button>
+        <Link href="#call">
+          <button id="call" className="white-btn mt-6">
+            {startNow.buttonText}
+          </button>
+        </Link>
       </div>
       <div className="mt-[150px] flex gap-[130px] justify-center">
         <div className="max-w-[600px]">
