@@ -4,7 +4,7 @@ import { Offre, TrustMe } from "@/sanity/lib/type";
 import Image from "next/image";
 import Brands from "./Brands";
 import BrandsPrice from "./BrandsPrice";
-import VideoTop from "./VideoTop";
+import VideoTopAvis from "./VideoTopAvis";
 
 interface PricingProps {
   price?: Offre;
@@ -86,15 +86,26 @@ export default async function Pricing({ price }: PricingProps) {
           <div className="z-10 absolute -top-4 -left-2 px-4 py-2 bg-white border border-black rotate-[-25deg]">
             <p className="text-sm">{price?.titleAvis}</p>
           </div>
-          <VideoTop videoUrl={price?.videoAvis} />
+          <VideoTopAvis videoUrl={"ZGKBM4k8sCc"} />
         </div>
       </div>
 
       {/* Desktop View */}
-      <div className="hidden lg:block mb-[50px] mt-[80px]">
+      <div className="hidden lg:block mb-[50px] mt-[100px]">
         <div className="flex gap-16 w-full items-center justify-around">
           <div className="w-[700px] p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
-            <p className="h2">{price?.title}</p>
+            <div className=" gap-2">
+              <p className="h2">
+                {price?.title.split(" ").slice(0, -2).join(" ")}
+                <span
+                  style={{ bottom: 0, height: "80%" }}
+                  className="highlighted-text"
+                >
+                  {" "}
+                  {price?.title.split(" ").slice(-2).join(" ")}
+                </span>
+              </p>
+            </div>
             <p className="mt-[25px] text-[18px] text-[#6B8DFF]">
               {price?.title2}
             </p>
@@ -139,7 +150,7 @@ export default async function Pricing({ price }: PricingProps) {
                   {price?.textButton}
                 </button>
               </div>
-              <div className="flex gap-3 justify-center items-center mt-4">
+              <div className="flex gap-3 justify-center items-center mt-4 mb-[100px]">
                 <Image
                   src={trustme.image1}
                   alt={trustme.title}
@@ -161,11 +172,22 @@ export default async function Pricing({ price }: PricingProps) {
               </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="z-10 absolute -top-4 -left-6 px-4 py-2 bg-white border border-black rotate-[-25deg]">
-              <p>{price?.titleAvis}</p>
+          <div className="relative w-[400px]">
+            <p className="h4 mb-[50px] text-center w-[370px] m-auto">
+              <div className="flex flex-wrap gap-2 justify-center">
+                <p>{price?.titleAvis.split(" ").slice(0, -5).join(" ")}</p>
+                <p className="highlighted-text">
+                  {price?.titleAvis.split(" ").slice(-5).join(" ")}
+                </p>
+              </div>
+            </p>
+            <div className="relative">
+              <div className="z-10 absolute -top-4 -left-6 px-4 py-2 bg-[#004AAD] border border-white rounded-full rotate-[-25deg]">
+                <p>Avis clients</p>
+              </div>
+
+              <VideoTopAvis videoUrl={"ZGKBM4k8sCc"} />
             </div>
-            <VideoTop videoUrl={price?.videoAvis} />
           </div>
         </div>
       </div>

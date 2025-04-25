@@ -28,7 +28,7 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
     <div className="relative w-full overflow-clip">
       <div className="mt-[150px] w-full md:px-10" ref={containerRef}>
         <div className="mb-[80px] max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-          <h2 className="h2">{data.title}</h2>
+          <h2 className="h2 mb-6">{data.title}</h2>
           <p className="p1">{data.subtitle}</p>
         </div>
 

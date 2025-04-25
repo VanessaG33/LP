@@ -12,7 +12,7 @@ export default async function BrandsPrice() {
 
   return (
     <section id="logos">
-      <div className="max-w-[100%] container mx-auto mt-[100px]">
+      <div className="max-w-[100%] container mx-auto">
         <div className="relative mt-6">
           <Marquee className="py-4 max-w-full [--duration:40s] [--gap:40px] lg:[--gap:30px]">
             {data[0].brands.map((company: Brand, idx: number) => (

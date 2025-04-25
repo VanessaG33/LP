@@ -18,7 +18,7 @@ export function Highlight({
     <span
       className={cn(
         "bg-[#f0abfc] p-1 py-0.5 font-bold text-[#d946ef] dark:bg-[#f0abfc] dark:text-[#d946ef]",
-        className
+        className,
       )}
     >
       {children}
@@ -33,7 +33,7 @@ export function TestimonialCard(card: any) {
       className={cn(
         "mb-4 flex w-full cursor-pointer break-inside-avoid flex-col items-start justify-between gap-6 rounded-xl p-4",
         // dark styles
-        "border border-[#FFFFFF66] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
+        "border border-[#FFFFFF66] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       )}
     >
       <PortableText value={data.description} />
@@ -55,7 +55,6 @@ export function TestimonialCard(card: any) {
 }
 
 export function Testimonials({ data }: { data: Testimonial[] }) {
-  console.log(`data`, data);
   return (
     <section id="testimonials" className="max-w-[400px] ">
       <div className="relative mt-6  max-h-[800px] overflow-hidden">

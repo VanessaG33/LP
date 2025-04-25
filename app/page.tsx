@@ -1,9 +1,9 @@
 import Brands from "@/components/Brands";
+import BrandsPrice from "@/components/BrandsPrice";
 import Faq from "@/components/Faq";
 import Grid from "@/components/Grid";
 import Pricing from "@/components/Pricing";
 import Roadmap from "@/components/Roadmap";
-import ThreeCards from "@/components/ThreeCards";
 import { Testimonials } from "@/components/ui/testimonials";
 import VideoTop from "@/components/VideoTop";
 import VideoTopAvis from "@/components/VideoTopAvis";
@@ -104,7 +104,7 @@ export default async function Home() {
           </button>
         </div>
         <div>
-          <VideoTop videoUrl={home.video?.asset?.url} />
+          <VideoTop videoUrl={"https://www.youtube.com/watch?v=dIRIYCt6g8Y"} />
         </div>
       </div>
       <Brands />
@@ -152,12 +152,43 @@ export default async function Home() {
           />
         )}
       </div>
+
       <div className="mt-[130px] flex flex-col justify-center items-center">
-        <p className="h2">{obstacles.title}</p>
+        <div className="flex gap-2">
+          <p className="h2">
+            {obstacles.title.split(" ").slice(0, -2).join(" ")}
+          </p>
+          <p className="h2 highlighted-text">
+            {obstacles.title.split(" ").slice(-2).join(" ")}
+          </p>
+        </div>
+
         <div className="p1 mt-6 text-center">
           <PortableText value={obstacles.description} />
         </div>
-        <ThreeCards blocks={obstacles.blocks} />
+        <div className="flex gap-[32px] mt-[70px]">
+          {obstacles.blocks.map((block, index) => (
+            <div
+              key={index}
+              className="px-[30px] w-[350px] rounded-2xl flex flex-col items-center border border-[#767676]"
+            >
+              <div className="my-[100px] w-[52px] h-[52px] rounded-xl bg-[#6B8DFF] flex justify-center items-center">
+                <Image
+                  src={block.image}
+                  alt={block.title}
+                  width={20}
+                  height={24}
+                />
+              </div>
+              <div className="pb-[35px]">
+                <p className="h4 text-center">{block.title}</p>
+                <div className="text-[14px] mt-2 text-center">
+                  <PortableText value={block.description} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
         <button className="w-[450px] mt-[70px] white-btn">
           {obstacles.buttonText}
         </button>
@@ -199,7 +230,7 @@ export default async function Home() {
           <div className="flex gap-[40px] justify-center mt-[30px]">
             <Testimonials data={avis.testimonials} />
             <div className="w-[400px] h-[650px]">
-              <VideoTopAvis videoUrl={avis.video} />
+              <VideoTopAvis videoUrl={"Wk5ANPxTB_A"} />
             </div>
             <Testimonials data={avis.moreTestimonials} />
           </div>
@@ -208,7 +239,14 @@ export default async function Home() {
       <Pricing price={priceData} />
       <div className="flex justify-center items-center gap-[100px]">
         <div className="max-w-[750px] ">
-          <p className="h2">{faqData.title}</p>
+          <div className="flex flex-wrap gap-2">
+            <p className="h2">
+              {faqData.title.split(" ").slice(0, -2).join(" ")}
+            </p>
+            <p className="h2 highlighted-text">
+              {faqData.title.split(" ").slice(-2).join(" ")}
+            </p>
+          </div>
           <div className="mt-6 p1">
             <PortableText value={faqData.description} />
           </div>
@@ -233,11 +271,19 @@ export default async function Home() {
       </div>
       <div className="mt-[150px] flex gap-[130px] justify-center">
         <div className="max-w-[600px]">
-          <p className="h2">{startNow.title2}</p>
+          <div className="flex flex-wrap gap-2">
+            <p className="h2">
+              {startNow.title2.split(" ").slice(0, -3).join(" ")}
+            </p>
+            <p className="h2 highlighted-text">
+              {startNow.title2.split(" ").slice(-3).join(" ")}
+            </p>
+          </div>
+
           <div className="p1 mt-[20px] ">
             <PortableText value={startNow.description2} />
           </div>
-          <div className="mt-6">
+          <div className="mt-6 pb-4 border-b border-[#FFFFFFB2]">
             {startNow.features.map((feature, index) => (
               <div key={index} className="flex items-center gap-2 pb-4">
                 <Image
@@ -250,8 +296,23 @@ export default async function Home() {
               </div>
             ))}
           </div>
+          <div>
+            <BrandsPrice />
+          </div>
         </div>
-        <div></div>
+        <div>
+          <div
+            className="iclosed-widget"
+            data-url="https://app.iclosed.io/e/l-ecole-des-conciergeries/appel-strategique"
+            title="💻 Visio Stratégique"
+            style={{ width: "100%", height: "620px" }}
+          ></div>
+          <script
+            type="text/javascript"
+            src="https://app.iclosed.io/assets/widget.js"
+            async
+          ></script>
+        </div>
       </div>
       <div className="mt-[180px] flex flex-col items-center pb-[150px]">
         <Image
