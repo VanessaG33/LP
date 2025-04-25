@@ -28,7 +28,7 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
     <div className="relative w-full overflow-clip">
       <div className="mt-[150px] w-full md:px-10" ref={containerRef}>
         <div className="mb-[80px] max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-          <div className="flex gap-2 mb-4">
+          <div className="flex gap-2 mb-4 items-center">
             <p className="h2">{data.title.split(" ").slice(0, -2).join(" ")}</p>
             <p className="h2 highlighted-text">
               {data.title.split(" ").slice(-2).join(" ")}

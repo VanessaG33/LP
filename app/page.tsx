@@ -34,7 +34,7 @@ import {
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
-export const revalidate = 60;
+export const revalidate = 10;
 
 export default async function Home() {
   const home: HomeData = await sanityFetch({
@@ -91,7 +91,7 @@ export default async function Home() {
             <Image src={home.image} alt={home.title} width={380} height={65} />
           )}
           <div className="h1 mt-[35px]">{home.title}</div>
-          <div className="mt-[35px] text-[18px]">
+          <div className="mt-2 text-[18px]">
             <PortableText value={home.description} />
           </div>
           <div className="mt-4 flex gap-8">
@@ -162,7 +162,7 @@ export default async function Home() {
       </div>
 
       <div className="mt-[130px] flex flex-col justify-center items-center">
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
           <p className="h2">
             {obstacles.title.split(" ").slice(0, -2).join(" ")}
           </p>
@@ -256,7 +256,7 @@ export default async function Home() {
           <p className="h2 mt-[35px]">{avis.title}</p>
           <div className="flex gap-[40px] justify-center mt-[30px]">
             <Testimonials data={avis.testimonials} />
-            <div className="w-[400px] h-[650px]">
+            <div className="mt-[30px] w-[400px] h-[650px]">
               <VideoTopAvis videoUrl={"Wk5ANPxTB_A"} />
             </div>
             <Testimonials data={avis.moreTestimonials} />
@@ -264,9 +264,9 @@ export default async function Home() {
         </div>
       </div>
       <Pricing price={priceData} />
-      <div className="flex justify-center items-center gap-[100px]">
+      <div className="flex justify-center items-center gap-[100px] mb-[100px]">
         <div className="max-w-[750px] ">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 items-center">
             <p className="h2">
               {faqData.title.split(" ").slice(0, -2).join(" ")}
             </p>
@@ -282,14 +282,19 @@ export default async function Home() {
         <Faq data={faqData.questions} />
       </div>
       <div className="flex flex-col items-center">
-        <Image
-          src={trustme.image1}
-          alt={trustme.title}
-          width={280}
-          height={60}
-          className="mt-6"
-        />
-        <p className="text-white">{trustme.text}</p>
+        {trustme.image1 && (
+          <Image
+            src={trustme.image1}
+            alt={trustme.title}
+            width={280}
+            height={60}
+            className="mt-6"
+          />
+        )}
+        <div className="mt-1 flex gap-1">
+          <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
+          <p>{trustme.text}</p>
+        </div>
         <p className="h2 mt-6">{startNow.title}</p>
         <div className="mt-[20px] text-center max-w-[790px]">
           <PortableText value={startNow.description} />
@@ -298,7 +303,7 @@ export default async function Home() {
       </div>
       <div className="mt-[150px] flex gap-[130px] justify-center">
         <div className="max-w-[600px]">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 items-center">
             <p className="h2">
               {startNow.title2.split(" ").slice(0, -3).join(" ")}
             </p>
@@ -334,14 +339,9 @@ export default async function Home() {
             title="💻 Visio Stratégique"
             style={{ width: "100%", height: "620px" }}
           ></div>
-          <script
-            type="text/javascript"
-            src="https://app.iclosed.io/assets/widget.js"
-            async
-          ></script>
         </div>
       </div>
-      <div className="mt-[180px] flex flex-col items-center pb-[150px]">
+      <div className="flex flex-col items-center pb-[150px]">
         <Image
           src={"/logo.svg"}
           alt={"vanessa conciergerie"}

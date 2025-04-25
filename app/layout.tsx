@@ -20,6 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <script
+        type="text/javascript"
+        src="https://app.iclosed.io/assets/widget.js"
+        async
+      ></script>
       <body className={`${nunito.variable} `}>
         <Nav />
         {children}

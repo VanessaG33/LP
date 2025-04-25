@@ -91,8 +91,8 @@ export default async function Pricing({ price }: PricingProps) {
       </div>
 
       {/* Desktop View */}
-      <div className="hidden lg:block mb-[50px] mt-[100px]">
-        <div className="flex gap-16 w-full items-center justify-around">
+      <div className="hidden lg:block mb-[100px] mt-[100px]">
+        <div className="flex w-full gap-16 items-center justify-center">
           <div className="w-[700px] p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
             <div className=" gap-2">
               <p className="h2">
@@ -150,7 +150,7 @@ export default async function Pricing({ price }: PricingProps) {
                   {price?.textButton}
                 </button>
               </div>
-              <div className="flex gap-3 justify-center items-center mt-4 mb-[100px]">
+              <div className="flex gap-3 justify-start items-center mt-4 mb-[20px]">
                 <Image
                   src={trustme.image1}
                   alt={trustme.title}
@@ -174,7 +174,7 @@ export default async function Pricing({ price }: PricingProps) {
           </div>
           <div className="relative w-[400px]">
             <p className="h4 mb-[50px] text-center w-[370px] m-auto">
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap justify-center">
                 <p>{price?.titleAvis.split(" ").slice(0, -5).join(" ")}</p>
                 <p className="highlighted-text">
                   {price?.titleAvis.split(" ").slice(-5).join(" ")}
