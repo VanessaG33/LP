@@ -105,3 +105,16 @@ export const startNowQuery = groq`*[_type == "startNow"][0] {
   features,
   calendly
 }`;
+
+export const howItWorksQuery = groq`*[_type == "howItWorks"][0] {
+  title,
+  subtitle,
+  steps[] {
+    title,
+    subtitle,
+    "image": image.asset->url,
+    "image2": image2.asset->url
+  },
+  buttonText,
+  "image": image.asset->url
+}`;

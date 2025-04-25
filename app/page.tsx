@@ -4,6 +4,7 @@ import Faq from "@/components/Faq";
 import Grid from "@/components/Grid";
 import Pricing from "@/components/Pricing";
 import Roadmap from "@/components/Roadmap";
+import Features from "@/components/ui/features-vertical";
 import { Testimonials } from "@/components/ui/testimonials";
 import VideoTop from "@/components/VideoTop";
 import VideoTopAvis from "@/components/VideoTopAvis";
@@ -12,6 +13,7 @@ import {
   avisQuery,
   faqQuery,
   homeQuery,
+  howItWorksQuery,
   obstaclesQuery,
   offreQuery,
   roadmapQuery,
@@ -22,6 +24,7 @@ import {
   Avis,
   FaqType,
   HomeData,
+  HowItWorks,
   Obstacles,
   Offre,
   RoadmapType,
@@ -72,6 +75,11 @@ export default async function Home() {
   const startNow: StartNow = await sanityFetch({
     query: startNowQuery,
     tags: ["startNow"],
+  });
+
+  const howItWorks: HowItWorks = await sanityFetch({
+    query: howItWorksQuery,
+    tags: ["howItWorks"],
   });
 
   return (
@@ -192,6 +200,25 @@ export default async function Home() {
         <button className="w-[450px] mt-[70px] white-btn">
           {obstacles.buttonText}
         </button>
+        <Image
+          src={trustme.image1}
+          alt={trustme.title}
+          width={280}
+          height={60}
+          className="mt-6"
+        />
+        <div className="mt-1 flex gap-1">
+          <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
+          <p className="text-white">{trustme.text}</p>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center mt-[150px]">
+        <p>{howItWorks.subtitle}</p>
+        <p className="h2 mt-6">{howItWorks.title}</p>
+        <Features data={howItWorks.steps} />
+
+        <button className="white-btn mt-6">{howItWorks.buttonText}</button>
         <Image
           src={trustme.image1}
           alt={trustme.title}

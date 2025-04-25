@@ -3,11 +3,12 @@ import avis from "./avis";
 import { brands } from "./brands";
 import { faq } from "./faq";
 import home from "./home";
+import { howItWorks } from "./howItWorks";
 import obstacles from "./obstacles";
 import { offre } from "./offre";
 import roadmap from "./roadmap";
-import trustme from "./trustme";
 import { startNow } from "./startNow";
+import trustme from "./trustme";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,5 +21,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     offre,
     faq,
     startNow,
+    howItWorks,
   ],
 };

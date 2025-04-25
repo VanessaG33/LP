@@ -101,3 +101,18 @@ export interface StartNow {
   features: string[];
   calendly: string;
 }
+
+export interface HowItWorksStep {
+  title: string;
+  subtitle: string;
+  image: string;
+  image2: string;
+  length: number;
+}
+
+export interface HowItWorks {
+  title: string;
+  subtitle: string;
+  steps: HowItWorksStep[];
+  buttonText: string;
+}
