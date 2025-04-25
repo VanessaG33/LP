@@ -94,14 +94,13 @@ export default async function Pricing({ price }: PricingProps) {
       <div className="hidden lg:block mb-[100px] mt-[100px]">
         <div className="flex w-full gap-16 items-center justify-center">
           <div className="w-[700px] p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
-            <div className=" gap-2">
-              <p className="h2">
+            <div className="h2 flex items-center gap-2">
+              <p>
                 {price?.title.split(" ").slice(0, -2).join(" ")}
                 <span
-                  style={{ bottom: 0, height: "80%" }}
-                  className="highlighted-text"
+                  style={{ bottom: 0, height: "60%" }}
+                  className="highlighted-text highlighted-text-custom"
                 >
-                  {" "}
                   {price?.title.split(" ").slice(-2).join(" ")}
                 </span>
               </p>

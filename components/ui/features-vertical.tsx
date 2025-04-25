@@ -176,8 +176,6 @@ export default function Features({
     }
   }, [data.length]);
 
-  console.log(`data`, data);
-
   return (
     <section ref={ref} id="features">
       <div className="container">

@@ -21,7 +21,7 @@ export async function sanityFetch<QueryResponse>({
   const isDraftMode = (await draftMode()).isEnabled;
   if (isDraftMode && !token) {
     throw new Error(
-      "The `SANITY_API_READ_TOKEN` environment variable is required.",
+      "The `SANITY_API_READ_TOKEN` environment variable is required."
     );
   }
   const isDevelopment = process.env.NODE_ENV === "development";
@@ -36,7 +36,7 @@ export async function sanityFetch<QueryResponse>({
       }),
       next: {
         ...(isDraftMode && { revalidate: 30 }),
-        revalidate: 60,
+        revalidate: 30,
         tags,
       },
     });

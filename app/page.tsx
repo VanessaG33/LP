@@ -90,7 +90,13 @@ export default async function Home() {
           {home.image && (
             <Image src={home.image} alt={home.title} width={380} height={65} />
           )}
-          <div className="h1 mt-[35px]">{home.title}</div>
+          <div className="max-w-[700px] h2 flex gap-2 items-center flex-wrap mt-[35px] mb-[32px]">
+            <p>Lance ta</p> <p className="highlighted-text">conciergerie</p>
+            <p className="highlighted-text">Airbnb</p>{" "}
+            <p>en 8 semaines et signe</p>
+            <p> ton premier client avec </p>
+            <p className="highlighted-text">assurance</p>
+          </div>
           <div className="mt-2 text-[18px]">
             <PortableText value={home.description} />
           </div>
@@ -178,9 +184,16 @@ export default async function Home() {
           {obstacles.blocks.map((block, index) => (
             <div
               key={index}
-              className="px-[30px] w-[350px] rounded-2xl flex flex-col items-center border border-[#767676]"
+              className="px-[30px] w-[350px] rounded-2xl flex flex-col items-center border border-[#767676] relative"
             >
-              <div className="my-[100px] w-[52px] h-[52px] rounded-xl bg-[#6B8DFF] flex justify-center items-center">
+              <Image
+                src="/grid.svg"
+                alt="grid"
+                width={350}
+                height={350}
+                className="absolute top-0 left-0 w-full h-full"
+              />
+              <div className="z-10 my-[100px] w-[52px] h-[52px] rounded-xl bg-[#6B8DFF] flex justify-center items-center ">
                 <Image
                   src={block.image}
                   alt={block.title}
@@ -215,7 +228,14 @@ export default async function Home() {
 
       <div className="flex flex-col items-center mt-[150px]">
         <p>{howItWorks.subtitle}</p>
-        <p className="h2 mt-6">{howItWorks.title}</p>
+        <p className="h2 mt-6">
+          {howItWorks.title.split(" ")[0]}{" "}
+          <span style={{ padding: "0 8px" }} className="highlighted-text">
+            {howItWorks.title.split(" ")[1]} {howItWorks.title.split(" ")[2]}
+          </span>{" "}
+          {howItWorks.title.split(" ").slice(3).join(" ")}
+        </p>
+
         <Features data={howItWorks.steps} />
 
         <button className="white-btn mt-6">{howItWorks.buttonText}</button>
