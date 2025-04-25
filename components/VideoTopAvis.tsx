@@ -15,7 +15,7 @@ export default function VideoTopAvis({ videoUrl }: { videoUrl: string }) {
     <div className="relative overflow-hidden rounded-2xl">
       {/* Vidéo YouTube Shorts au clic (mobile + desktop) */}
       <div
-        className="border-4 rounded-2xl shadow-2xl shadow-white w-full object-cover"
+        className="border-4 rounded-2xl shadow-2xl shadow-white lg:w-full object-cover"
         onClick={handlePlayPause}
       >
         <iframe
@@ -24,7 +24,7 @@ export default function VideoTopAvis({ videoUrl }: { videoUrl: string }) {
           src={`https://www.youtube.com/embed/${videoUrl}`}
           title="YouTube Shorts video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          className="rounded-xl" // Applique une bordure arrondie
+          className="rounded-xl w-[350px] lg:w-full h-[580px] lg:h-full" // Applique une bordure arrondie
         ></iframe>
       </div>
 

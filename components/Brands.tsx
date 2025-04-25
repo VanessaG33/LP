@@ -1,8 +1,8 @@
 import { Marquee } from "@/components/ui/marquee";
-import Image from "next/image";
-import { Brand } from "@/sanity/lib/type";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { brandsQuery } from "@/sanity/lib/query";
+import { Brand } from "@/sanity/lib/type";
+import Image from "next/image";
 
 export default async function Brands() {
   const data: any = await sanityFetch({
@@ -12,7 +12,7 @@ export default async function Brands() {
 
   return (
     <section id="logos" className="bg-[#004AAD]">
-      <div className="max-w-[100%] container mx-auto mt-[100px]">
+      <div className="max-w-[100%] container mx-auto mt-[20px] lg:mt-[100px]">
         <div className="relative mt-6">
           <Marquee className="py-4 max-w-full [--duration:40s] [--gap:40px] lg:[--gap:30px]">
             {data[0].brands.map((company: Brand, idx: number) => (

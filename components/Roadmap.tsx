@@ -26,24 +26,31 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
 
   return (
     <div className="relative w-full overflow-clip">
-      <div className="mt-[150px] w-full md:px-10" ref={containerRef}>
+      <div
+        className="mt-[100px] lg:mt-[150px] w-full md:px-10"
+        ref={containerRef}
+      >
         <div className="mb-[80px] max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-          <div className="flex gap-2 mb-4 items-center">
-            <p className="h2">{data.title.split(" ").slice(0, -2).join(" ")}</p>
+          <div className="flex gap-2 mb-4 justify-center lg:justify-start items-center">
+            <p className=" h2">
+              {data.title.split(" ").slice(0, -2).join(" ")}
+            </p>
             <p className="h2 highlighted-text">
               {data.title.split(" ").slice(-2).join(" ")}
             </p>
           </div>
-          <p className="p1 max-w-[880px]">{data.subtitle}</p>
+          <p className="p1 max-w-[880px] text-center lg:text-left ">
+            {data.subtitle}
+          </p>
         </div>
 
-        <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+        <div ref={ref} className="relative max-w-7xl mx-auto lg:pb-20">
           {data.steps.map((item: RoadmapStep, index: number) => (
             <div
               key={index}
-              className="flex justify-start pt-[120px] md:gap-[120px]"
+              className="mb-[64px] lg-[mb-0] flex flex-col lg:flex-row justify-start lg:pt-[120px] md:gap-[120px]"
             >
-              <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start md:w-full max-w-[500px]">
+              <div className="sticky hidden lg:flex flex-col md:flex-row z-40 items-center top-40 self-start md:w-full max-w-[500px]">
                 <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[#6B8DFF] flex items-center justify-center">
                   <span>{index + 1}</span>
                 </div>
@@ -53,10 +60,19 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
                 </div>
               </div>
 
-              <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
-                  {item.title}
-                </h3>
+              <div className="px-4 flex lg:hidden gap-4">
+                <div className="z-10 h-[30px] w-[48px] rounded-full bg-[#6B8DFF] flex items-center justify-center">
+                  <span>{index + 1}</span>
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="h5">{item.title}</h3>
+                  <p className="mt-2 text-[#FFFFFFCC] text-sm">
+                    {item.subtitle}
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative pl-14 mt-[40px] lg:mt-0 pr-4 md:pl-4 w-full">
                 <Image
                   src={item.image}
                   alt={item.title}

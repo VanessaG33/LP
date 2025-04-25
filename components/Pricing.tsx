@@ -3,7 +3,6 @@ import { trustmeQuery } from "@/sanity/lib/query";
 import { Offre, TrustMe } from "@/sanity/lib/type";
 import Image from "next/image";
 import Link from "next/link";
-import Brands from "./Brands";
 import BrandsPrice from "./BrandsPrice";
 import VideoTopAvis from "./VideoTopAvis";
 
@@ -18,86 +17,11 @@ export default async function Pricing({ price }: PricingProps) {
   });
   return (
     <div className="px-4 lg:px-[30px] m-auto">
-      {/* Mobile View */}
-      <div className="lg:hidden mt-8">
-        <div className="p-6 border border-[#121212]">
-          <p className="h2">{price?.title}</p>
-          <p className="text-[18px] text-[#6B8DFF]">{price?.title2}</p>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <div className="flex items-center gap-3">
-                <p className="font-cabin">{price?.sub1}</p>
-                <span className="h-[1px] flex-1 bg-[#12121220]"></span>
-              </div>
-              <div className="mt-4 space-y-3">
-                {price?.sub1List.map((desc, index) => (
-                  <p
-                    key={index}
-                    className="font-extralight flex items-start gap-2"
-                  >
-                    <Image
-                      src="logoStep.svg"
-                      width={20}
-                      height={20}
-                      alt="logo"
-                      className="mt-1"
-                    />
-                    <span>{desc}</span>
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-3">
-                <p className="font-cabin">{price?.sub2}</p>
-                <span className="h-[1px] flex-1 bg-[#12121220]"></span>
-              </div>
-              <div className="mt-4 space-y-3">
-                {price?.sub2List.map((desc, index) => (
-                  <p
-                    key={index}
-                    className="font-extralight flex items-start gap-2"
-                  >
-                    <Image
-                      src="logoStep.svg"
-                      width={20}
-                      height={20}
-                      alt="logo"
-                      className="mt-1"
-                    />
-                    <span>{desc}</span>
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <Link href="#call">
-              <button>button</button>
-            </Link>
-          </div>
-
-          <div className="mt-8">
-            <Brands />
-          </div>
-        </div>
-
-        <div className="mt-16 relative">
-          <div className="z-10 absolute -top-4 -left-2 px-4 py-2 bg-white border border-black rotate-[-25deg]">
-            <p className="text-sm">{price?.titleAvis}</p>
-          </div>
-          <VideoTopAvis videoUrl={"ZGKBM4k8sCc"} />
-        </div>
-      </div>
-
       {/* Desktop View */}
-      <div className="hidden lg:block mb-[100px] mt-[100px]">
-        <div className="flex w-full gap-16 items-center justify-center">
-          <div className="w-[700px] p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
-            <div className="h2 flex items-center gap-2">
+      <div className="block mb-[20px] lg:mb-[100px] mt-[100px]">
+        <div className="flex flex-col lg:flex-row  w-full gap-16 items-center justify-center">
+          <div className="w-full lg:w-[700px] p-[26px] lg:p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
+            <div className="h4 flex items-center gap-2">
               <p>
                 {price?.title.split(" ").slice(0, -2).join(" ")}
                 <span
@@ -149,12 +73,12 @@ export default async function Pricing({ price }: PricingProps) {
 
               <div className="mt-12">
                 <Link href="#call">
-                  <button className="white-btn w-[330px]">
+                  <button className="!min-w-[300px] white-btn lg:w-[330px]">
                     {price?.textButton}
                   </button>
                 </Link>
               </div>
-              <div className="flex gap-3 justify-start items-center mt-4 mb-[20px]">
+              <div className="flex flex-col lg:flex-row gap-3 justify-start items-center mt-6 lg:mt-4 mb-[20px]">
                 <Image
                   src={trustme.image1}
                   alt={trustme.title}
@@ -186,11 +110,12 @@ export default async function Pricing({ price }: PricingProps) {
               </div>
             </p>
             <div className="relative">
-              <div className="z-10 absolute -top-4 -left-6 px-4 py-2 bg-[#004AAD] border border-white rounded-full rotate-[-25deg]">
+              <div className="hidden lg:block z-10 absolute -top-4 -left-6 px-4 py-2 bg-[#004AAD] border border-white rounded-full rotate-[-25deg]">
                 <p>Avis clients</p>
               </div>
-
-              <VideoTopAvis videoUrl={"ZGKBM4k8sCc"} />
+              <div className="px-4 lg:px-none mt-[30px] lg:w-[400px] h-[650px]">
+                <VideoTopAvis videoUrl={"ZGKBM4k8sCc"} />
+              </div>
             </div>
           </div>
         </div>

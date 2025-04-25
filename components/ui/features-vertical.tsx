@@ -180,7 +180,7 @@ export default function Features({
     <section ref={ref} id="features">
       <div className="container">
         <div className="max-w-6xl mx-auto">
-          <div className="mx-auto my-12 h-full grid lg:grid-cols-2 gap-10 items-center">
+          <div className="mx-auto lg:my-12 h-full grid lg:grid-cols-2 gap-4 lg:gap-10 items-center">
             <div
               className={` hidden lg:flex order-1 lg:order-[0] ${
                 ltr ? "lg:order-2 lg:justify-end" : "justify-start"
@@ -279,7 +279,7 @@ export default function Features({
                   key={currentIndex}
                   src={data[currentIndex].image2}
                   alt="feature"
-                  className="aspect-auto h-full w-full rounded-xl object-cover object-left-top p-1 shadow-lg"
+                  className="aspect-auto h-full w-full rounded-xl object-cover object-left-top px-4 lg:px-none lg:p-1 shadow-lg"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
