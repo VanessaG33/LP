@@ -86,23 +86,33 @@ export default async function Home() {
   return (
     <div>
       <Grid />
-      <div className="px-2 lg:px-none1 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-[100px] mt-[100px] lg:mt-[170px] justify-center items-center">
-        <div className="w-full lg:max-w-[735px] flex flex-col items-center lg:block">
+      <div className="px-4 lg:px-none1 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-[100px] mt-[100px] lg:mt-[170px] justify-center items-center">
+        <div className="w-full lg:max-w-[735px] flex flex-col items-start lg:items-center lg:block">
           {home.image && (
             <Image
-              src={"test.png"}
+              src={"/test.png"}
               alt={home.title}
               width={380}
               height={65}
               className="w-[330px] lg:w-[380px]"
             />
           )}
-          <div className="lg:max-w-[700px] h2-title flex gap-2 items-center flex-wrap mt-[35px] lg:mb-[32px]">
+          <div className="flex leading-[35px] lg:hidden items-center mt-[35px] ">
+            <p className="h2-title">
+              Lance ta
+              <span className="highlighted-text"> conciergerie</span>
+              <br />
+              Airbnb en 8 semaines et signe ton premier client avec
+              <span className="highlighted-text"> assurance</span>
+            </p>
+          </div>
+          <div className="hidden lg:max-w-[700px] h2-title lg:flex gap-2 items-center flex-wrap mt-[35px] lg:mb-[32px]">
             <p>Lance ta</p> <p className="highlighted-text">conciergerie</p>
             <p>Airbnb en 8 semaines et signe</p>
             <p> ton premier client avec </p>
             <p className="highlighted-text">assurance</p>
           </div>
+
           <div className="mt-2 text-[18px]">
             <PortableText value={home.description} />
           </div>
