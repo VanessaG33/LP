@@ -317,7 +317,7 @@ export default async function Home() {
       <div id="price"></div>
       <Pricing price={priceData} />
       <div id="faq"></div>
-      <div className="px-4 lg:px-none flex flex-col lg:flex-row justify-center items-center gap-[20px] mt-[100px] lg:mt-0 lg:gap-[100px] mb-[100px]">
+      <div className="max-w-[1280px] m-auto px-4 lg:px-none flex flex-col lg:flex-row justify-between items-center gap-[20px] mt-[100px] lg:mt-0 lg:gap-[100px] mb-[100px]">
         <div className="max-w-[750px] ">
           <div className="flex flex-wrap items-center">
             <p className="h2">
