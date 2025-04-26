@@ -33,9 +33,9 @@ export default async function Pricing({ price }: PricingProps) {
                 </span>
               </p>
             </div>
-            <p className="mt-[25px] text-[18px] text-[#6B8DFF]">
+            {/* <p className="mt-[25px] text-[18px] text-[#6B8DFF]">
               {price?.title2}
-            </p>
+            </p> */}
             <div className="mt-[30px]">
               <div className="flex items-center gap-4">
                 <p className="h5">{price?.sub1}</p>

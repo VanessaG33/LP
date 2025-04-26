@@ -65,13 +65,11 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
                 </div>
               </div>
 
-              <div className="px-4 flex items-center justify-center lg:hidden gap-4">
-                <div className="z-10 h-[30px] w-[30px] rounded-full bg-[#6B8DFF] flex items-center justify-center">
-                  <span className="w-full h-full flex items-center justify-center text-sm">
-                    {index + 1}
-                  </span>
-                </div>
-                <div className="flex flex-col">
+              <div className="px-4 flex lg:items-center lg:justify-center lg:hidden gap-4">
+                <span className="flex items-center justify-center z-10 rounded-full bg-[#6B8DFF] h-[30px] w-[30px] text-sm">
+                  {index + 1}
+                </span>
+                <div className="flex flex-col max-w-[300px] lg:max-w-full">
                   <h3 className="h5">{item.title}</h3>
                   <p className="mt-2 text-[#FFFFFFCC] text-sm">
                     {item.subtitle}
