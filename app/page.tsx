@@ -89,7 +89,13 @@ export default async function Home() {
       <div className="px-2 lg:px-none1 relative z-10 flex flex-col lg:flex-row gap-10 lg:gap-[100px] mt-[100px] lg:mt-[170px] justify-center items-center">
         <div className="w-full lg:max-w-[735px] flex flex-col items-center lg:block">
           {home.image && (
-            <Image src={home.image} alt={home.title} width={380} height={65} />
+            <Image
+              src={home.image}
+              alt={home.title}
+              width={380}
+              height={65}
+              className="w-[330px] lg:w-[380px]"
+            />
           )}
           <div className="lg:max-w-[700px] h2-title flex gap-2 items-center flex-wrap mt-[35px] lg:mb-[32px]">
             <p>Lance ta</p> <p className="highlighted-text">conciergerie</p>
