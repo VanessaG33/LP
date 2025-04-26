@@ -2,6 +2,7 @@ import Brands from "@/components/Brands";
 import BrandsPrice from "@/components/BrandsPrice";
 import Faq from "@/components/Faq";
 import Grid from "@/components/Grid";
+import IClosed from "@/components/Iclosed";
 import Pricing from "@/components/Pricing";
 import Roadmap from "@/components/Roadmap";
 import Features from "@/components/ui/features-vertical";
@@ -364,9 +365,9 @@ export default async function Home() {
           </button>
         </Link>
       </div>
-      <div className="hidden lg:flex mt-[150px] gap-[130px] justify-center">
+      <div className="mb-[150px] flex-col items-center hidden lg:flex mt-[150px] gap-[130px] justify-center">
         <div className="lg:max-w-[600px]">
-          <div className="flex flex-wrap flex-col lg:flex-row gap-2 items-center">
+          <div className="flex justify-center flex-wrap flex-col lg:flex-row gap-2 items-center">
             <p className="h2">
               {startNow.title2.split(" ").slice(0, -3).join(" ")}
             </p>
@@ -375,10 +376,10 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="p1 mt-[20px] ">
+          <div className="text-center p1 mt-[20px] ">
             <PortableText value={startNow.description2} />
           </div>
-          <div className="mt-6 pb-4 border-b border-[#FFFFFFB2]">
+          <div className="flex flex-wrap gap-6 justify-center mt-6 pb-4 border-b border-[#FFFFFFB2]">
             {startNow.features.map((feature, index) => (
               <div key={index} className="flex items-center gap-2 pb-4">
                 <Image
@@ -395,13 +396,8 @@ export default async function Home() {
             <BrandsPrice />
           </div>
         </div>
-        <div>
-          <div
-            className="iclosed-widget"
-            data-url="https://app.iclosed.io/e/l-ecole-des-conciergeries/appel-strategique"
-            title="💻 Visio Stratégique"
-            style={{ width: "100%", height: "620px" }}
-          ></div>
+        <div className="w-full">
+          <IClosed />
         </div>
       </div>
       <div className="px-4 flex flex-col lg:hidden mt-[120px]">
@@ -432,12 +428,9 @@ export default async function Home() {
         <div className="max-w-[90%]">
           <BrandsPrice />
         </div>
-        <div
-          className="iclosed-widget"
-          data-url="https://app.iclosed.io/e/l-ecole-des-conciergeries/appel-strategique"
-          title="💻 Visio Stratégique"
-          style={{ width: "100%", height: "620px" }}
-        ></div>
+        <div className="mt-10 w-full">
+          <IClosed />
+        </div>
       </div>
       <div className="flex flex-col items-center mt-[150px] lg:mt-0 pb-[150px]">
         <Image
