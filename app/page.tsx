@@ -344,7 +344,7 @@ export default async function Home() {
           </button>
         </Link>
       </div>
-      <div className="hidden lg:block mt-[150px] flex gap-[130px] justify-center">
+      <div className="hidden lg:flex mt-[150px] gap-[130px] justify-center">
         <div className="lg:max-w-[600px]">
           <div className="flex flex-wrap flex-col lg:flex-row gap-2 items-center">
             <p className="h2">
