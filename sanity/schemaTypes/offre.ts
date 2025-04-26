@@ -11,6 +11,11 @@ export const offre = defineType({
       type: "string",
     },
     {
+      name: "titleSecond",
+      title: "Titre Secondaire",
+      type: "string",
+    },
+    {
       name: "title2",
       title: "Titre 2",
       type: "string",

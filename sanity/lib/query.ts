@@ -35,6 +35,7 @@ export const offreQuery = groq`
 *[_type == "offre"][0]{
   _id,
   title,
+  titleSecond,
   title2,
   sub1,
   sub1List,

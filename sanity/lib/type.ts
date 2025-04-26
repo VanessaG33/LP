@@ -67,6 +67,7 @@ export interface Avis {
 export interface Offre {
   _id: string;
   title: string;
+  titleSecond: string;
   title2: string;
   sub1: string;
   sub1List: string[];

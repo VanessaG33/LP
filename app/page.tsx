@@ -245,9 +245,9 @@ export default async function Home() {
 
       <div className="flex flex-col items-center mt-[100px] lg:mt-[150px]">
         <p className="hidden lg:block">{howItWorks.subtitle}</p>
-        <p className="h2 mt-6 w-[250px] text-center lg:w-auto mb-6 lg:mb-0">
+        <p className="h2 mt-6 px-6 lg:px-0 text-center mb-6 lg:mb-0">
           {howItWorks.title.split(" ")[0]}{" "}
-          <span style={{ padding: "0 8px" }} className="highlighted-text">
+          <span className="highlighted-text">
             {howItWorks.title.split(" ")[1]} {howItWorks.title.split(" ")[2]}
           </span>{" "}
           {howItWorks.title.split(" ").slice(3).join(" ")}
@@ -255,7 +255,9 @@ export default async function Home() {
 
         <Features data={howItWorks.steps} />
         <Link href="#call">
-          <button className="white-btn mt-6">{howItWorks.buttonText}</button>
+          <button className="white-btn -mt-4 lg:mt-6">
+            {howItWorks.buttonText}
+          </button>
         </Link>
         <Image
           src={trustme.image1}
@@ -316,7 +318,7 @@ export default async function Home() {
       <div id="faq"></div>
       <div className="px-4 lg:px-none flex flex-col lg:flex-row justify-center items-center gap-[20px] mt-[100px] lg:mt-0 lg:gap-[100px] mb-[100px]">
         <div className="max-w-[750px] ">
-          <div className="flex flex-wrap gap-2 items-center">
+          <div className="flex flex-wrap items-center">
             <p className="h2">
               {faqData.title.split(" ").slice(0, -2).join(" ")}
             </p>
@@ -350,8 +352,10 @@ export default async function Home() {
           <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
           <p>{trustme.text}</p>
         </div>
-        <p className="h2 mt-10">{startNow.title}</p>
-        <div className="mt-[30px] text-center max-w-[790px]">
+        <p className="h2 mt-10 px-4 lg:px-none text-center lg:text-left">
+          {startNow.title}
+        </p>
+        <div className="mt-[30px] text-center max-w-[790px] px-6 lg:px-none">
           <PortableText value={startNow.description} />
         </div>
         <Link href="#call">
@@ -401,20 +405,20 @@ export default async function Home() {
         </div>
       </div>
       <div className="px-4 flex flex-col lg:hidden mt-[120px]">
-        <div className="flex lg:flex-row gap-2 items-center">
-          <p className="h2">
+        <div className="flex whitespace-nowrap items-center">
+          <p className="h2 ">
             {startNow.title2.split(" ").slice(0, -3).join(" ")}
           </p>
           <p className="h2 highlighted-text">
             {startNow.title2.split(" ").slice(-3).join(" ")}
           </p>
         </div>
-        <div className="p1 mt-[20px] ">
+        <div className="p1 mt-[20px] text-center lg:text-left">
           <PortableText value={startNow.description2} />
         </div>
-        <div className="mt-6 border-b border-[#FFFFFFB2] pb-4">
+        <div className="flex flex-wrap gap-4  mt-6 border-b border-[#FFFFFFB2] pb-4 justify-center">
           {startNow.features.map((feature, index) => (
-            <div key={index} className="flex items-center gap-2 pb-4">
+            <div key={index} className="flex items-center gap-2 lg:pb-4">
               <Image
                 src="/icons/check.svg"
                 alt={"check"}
@@ -428,14 +432,12 @@ export default async function Home() {
         <div className="max-w-[90%]">
           <BrandsPrice />
         </div>
-        <div>
-          <div
-            className="iclosed-widget"
-            data-url="https://app.iclosed.io/e/l-ecole-des-conciergeries/appel-strategique"
-            title="💻 Visio Stratégique"
-            style={{ width: "100%", height: "620px" }}
-          ></div>
-        </div>
+        <div
+          className="iclosed-widget"
+          data-url="https://app.iclosed.io/e/l-ecole-des-conciergeries/appel-strategique"
+          title="💻 Visio Stratégique"
+          style={{ width: "100%", height: "620px" }}
+        ></div>
       </div>
       <div className="flex flex-col items-center mt-[150px] lg:mt-0 pb-[150px]">
         <Image
@@ -444,7 +446,7 @@ export default async function Home() {
           width={80}
           height={60}
         />
-        <div className="flex gap-8 mt-6">
+        <div className="flex gap-4 lg:gap-8 mt-6">
           <p className="text-sm text-[#D4D4D4]">Fonctionnement</p>
           <p className="text-sm text-[#D4D4D4]">Résultat accompagnement</p>
           <p className="text-sm text-[#D4D4D4]">A propos</p>

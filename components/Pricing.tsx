@@ -21,14 +21,12 @@ export default async function Pricing({ price }: PricingProps) {
       <div className="block mb-[20px] lg:mb-[100px] mt-[100px]">
         <div className="flex flex-col lg:flex-row  w-full gap-16 items-center justify-center">
           <div className="w-full lg:w-[700px] p-[26px] lg:p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
-            <div className="h2 flex items-center gap-2">
-              <p>
-                {price?.title.split(" ").slice(0, -2).join(" ")}
-                <span
-                  style={{ bottom: 0, height: "60%" }}
-                  className="highlighted-text highlighted-text-custom"
-                >
-                  {price?.title.split(" ").slice(-2).join(" ")}
+            <div className="h2 flex flex-col items-start gap-2">
+              <p>{price?.title}</p>
+              <p className="h4">
+                {price?.titleSecond.split(" ").slice(0, -1).join(" ")}
+                <span className="highlighted-text">
+                  {price?.titleSecond.split(" ").slice(-1).join(" ")}
                 </span>
               </p>
             </div>
@@ -102,13 +100,11 @@ export default async function Pricing({ price }: PricingProps) {
             </div>
           </div>
           <div className="relative w-[400px]">
-            <p className="h4 mb-[50px] text-center w-[370px] m-auto">
-              <div className="flex flex-wrap justify-center">
-                <p>{price?.titleAvis.split(" ").slice(0, -5).join(" ")}</p>
-                <p className="highlighted-text">
-                  {price?.titleAvis.split(" ").slice(-5).join(" ")}
-                </p>
-              </div>
+            <p className="h4 h4-custom mb-[50px] text-center w-[370px] m-auto">
+              {price?.titleAvis.split(" ").slice(0, -5).join(" ")}
+              <span className="highlighted-text">
+                {price?.titleAvis.split(" ").slice(-5).join(" ")}
+              </span>
             </p>
             <div className="relative">
               <div className="hidden lg:block z-10 absolute -top-4 -left-6 px-4 py-2 bg-[#004AAD] border border-white rounded-full rotate-[-25deg]">

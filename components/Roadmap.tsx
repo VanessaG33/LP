@@ -31,11 +31,16 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
         ref={containerRef}
       >
         <div className="mb-[80px] max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-          <div className="flex gap-2 mb-4 justify-center lg:justify-start items-center">
-            <p className=" h2">
+          <div
+            style={{
+              whiteSpace: "nowrap",
+            }}
+            className="flex gap-2 mb-4 justify-center lg:justify-start items-center"
+          >
+            <p className="h2 h2-litle">
               {data.title.split(" ").slice(0, -2).join(" ")}
             </p>
-            <p className="h2 highlighted-text">
+            <p className="h2 h2-litle highlighted-text">
               {data.title.split(" ").slice(-2).join(" ")}
             </p>
           </div>
@@ -60,9 +65,11 @@ export default function Roadmap({ data }: { data: RoadmapType }) {
                 </div>
               </div>
 
-              <div className="px-4 flex lg:hidden gap-4">
-                <div className="z-10 h-[30px] w-[48px] rounded-full bg-[#6B8DFF] flex items-center justify-center">
-                  <span>{index + 1}</span>
+              <div className="px-4 flex items-center justify-center lg:hidden gap-4">
+                <div className="z-10 h-[30px] w-[30px] rounded-full bg-[#6B8DFF] flex items-center justify-center">
+                  <span className="w-full h-full flex items-center justify-center text-sm">
+                    {index + 1}
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <h3 className="h5">{item.title}</h3>
