@@ -19,13 +19,16 @@ export default async function Pricing({ price }: PricingProps) {
     <div className="px-4 lg:px-[30px] m-auto">
       {/* Desktop View */}
       <div className="block mb-[20px] lg:mb-[100px] mt-[100px]">
-        <div className="flex flex-col lg:flex-row  w-full gap-16 items-center justify-center">
+        <div className="max-w-[1280px] flex flex-col lg:flex-row  w-full gap-16 items-center justify-center">
           <div className="w-full lg:w-[700px] p-[26px] lg:p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
             <div className="h2 flex flex-col items-start gap-2">
               <p>{price?.title}</p>
               <p className="h4">
                 {price?.titleSecond.split(" ").slice(0, -1).join(" ")}
-                <span className="highlighted-text">
+                <span
+                  style={{ marginLeft: "5px" }}
+                  className="highlighted-text"
+                >
                   {price?.titleSecond.split(" ").slice(-1).join(" ")}
                 </span>
               </p>
