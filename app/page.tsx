@@ -90,7 +90,7 @@ export default async function Home() {
         <div className="w-full lg:max-w-[735px] flex flex-col items-center lg:block">
           {home.image && (
             <Image
-              src={home.image}
+              src={"test.svg"}
               alt={home.title}
               width={380}
               height={65}
