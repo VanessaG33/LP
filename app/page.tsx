@@ -352,7 +352,7 @@ export default async function Home() {
           <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
           <p>{trustme.text}</p>
         </div>
-        <p className="h2 mt-10 px-4 lg:px-none text-center lg:text-left">
+        <p className="h2 mt-10 px-8 lg:px-none text-center lg:text-left">
           {startNow.title}
         </p>
         <div className="mt-[30px] text-center max-w-[790px] px-6 lg:px-none">
@@ -405,7 +405,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="px-4 flex flex-col lg:hidden mt-[120px]">
-        <div className="flex whitespace-nowrap items-center">
+        <div className="flex whitespace-nowrap items-center justify-center lg:justify-start">
           <p className="h2 ">
             {startNow.title2.split(" ").slice(0, -3).join(" ")}
           </p>

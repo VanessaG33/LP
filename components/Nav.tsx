@@ -8,7 +8,7 @@ import React from "react";
 const menuItems = [
   { name: "Fonctionnement", href: "#roadmap" },
   { name: "Résultat accompagnement", href: "#results" },
-  { name: "Prix", href: "#price" },
+  { name: "Contenu", href: "#price" },
   { name: "A propos", href: "#faq" },
 ];
 
