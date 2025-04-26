@@ -12,10 +12,10 @@ export default function VideoTopAvis({ videoUrl }: { videoUrl: string }) {
   // Extraire l'ID de la vidéo Shorts depuis l'URL complète
 
   return (
-    <div className="relative overflow-hidden rounded-2xl">
+    <div className="h-full relative overflow-hidden rounded-2xl">
       {/* Vidéo YouTube Shorts au clic (mobile + desktop) */}
       <div
-        className="border-4 rounded-2xl shadow-2xl shadow-white lg:w-full object-cover"
+        className="h-full border-4 rounded-2xl shadow-2xl shadow-white lg:w-full object-cover"
         onClick={handlePlayPause}
       >
         <iframe

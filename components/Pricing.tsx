@@ -21,7 +21,7 @@ export default async function Pricing({ price }: PricingProps) {
       <div className="block mb-[20px] lg:mb-[100px] mt-[100px]">
         <div className="flex flex-col lg:flex-row  w-full gap-16 items-center justify-center">
           <div className="w-full lg:w-[700px] p-[26px] lg:p-[40px] flex flex-col border border-[#FFFFFF] rounded-2xl">
-            <div className="h4 flex items-center gap-2">
+            <div className="h2 flex items-center gap-2">
               <p>
                 {price?.title.split(" ").slice(0, -2).join(" ")}
                 <span
@@ -78,14 +78,15 @@ export default async function Pricing({ price }: PricingProps) {
                   </button>
                 </Link>
               </div>
-              <div className="flex flex-col lg:flex-row gap-3 justify-start items-center mt-6 lg:mt-4 mb-[20px]">
+              <div className="items-baseline flex flex-col lg:flex-row gap-3 justify-start lg:items-center mt-6 lg:mt-4 mb-[20px]">
                 <Image
                   src={trustme.image1}
                   alt={trustme.title}
                   width={280}
                   height={60}
+                  className="w-[140px] lg:w-auto"
                 />
-                <p className="text-white">
+                <p className="flex lg:block gap-2 items-center text-white text-xs lg:text-base">
                   <Image
                     src={"/stars.svg"}
                     alt={"stars"}

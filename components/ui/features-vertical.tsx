@@ -203,7 +203,7 @@ export default function Features({
                   >
                     {linePosition === "left" || linePosition === "right" ? (
                       <div
-                        className={`absolute bottom-0 top-0 h-full w-0.5 overflow-hidden rounded-lg bg-neutral-300/50 dark:bg-neutral-300/30 ${
+                        className={`absolute bottom-0 top-0 h-full w-0.5 overflow-hidden rounded-lg bg-[#D4D4D480] ${
                           linePosition === "right"
                             ? "left-auto right-0"
                             : "left-0 right-auto"
@@ -212,7 +212,7 @@ export default function Features({
                         <div
                           className={`absolute left-0 top-0 w-full ${
                             currentIndex === index ? "h-full" : "h-0"
-                          } origin-top bg-primary transition-all ease-linear dark:bg-white`}
+                          } origin-top bg-[#6B8DFF] transition-all ease-linear`}
                           style={{
                             transitionDuration:
                               currentIndex === index
@@ -225,7 +225,7 @@ export default function Features({
 
                     {linePosition === "top" || linePosition === "bottom" ? (
                       <div
-                        className={`absolute left-0 right-0 w-full h-0.5 overflow-hidden rounded-lg bg-neutral-300/50 dark:bg-neutral-300/30 ${
+                        className={`absolute left-0 right-0 w-full h-0.5 overflow-hidden rounded-lg bg-[#6B8DFF ${
                           linePosition === "bottom" ? "bottom-0" : "top-0"
                         }`}
                       >
@@ -292,7 +292,7 @@ export default function Features({
 
             <ul
               ref={carouselRef}
-              className=" flex h-full snap-x flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden snap-mandatory"
+              className=" flex h-full snap-x flex-nowrap overflow-x-auto py-10 lg:[-ms-overflow-style:none] lg:[-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] lg:[mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden snap-mandatory"
               style={{
                 padding: "50px calc(50%)",
               }}
@@ -300,24 +300,24 @@ export default function Features({
               {data.map((item, index) => (
                 <div
                   key={index}
-                  className="card relative mr-8 grid h-full max-w-60 shrink-0 items-start justify-center py-4 last:mr-0"
+                  className="card relative mr-8 max-w-[350px] grid h-full shrink-0 items-start justify-center py-4 last:mr-0"
                   onClick={() => setCurrentIndex(index)}
                   style={{
                     scrollSnapAlign: "center",
                   }}
                 >
-                  <div className="absolute bottom-0 left-0 right-auto top-0 h-0.5 w-full overflow-hidden rounded-lg bg-neutral-300/50 dark:bg-neutral-300/30">
+                  <div className="absolute bottom-0 left-0 right-auto top-0 h-0.5 w-[350px] overflow-hidden rounded-lg bg-neutral-300/50 dark:bg-neutral-300/30">
                     <div
                       className={`absolute left-0 top-0 h-full ${
-                        currentIndex === index ? "w-full" : "w-0"
-                      } origin-top bg-primary transition-all ease-linear`}
+                        currentIndex === index ? "w-[320px]" : "w-0"
+                      } origin-top bg-[#6B8DFF] transition-all ease-linear`}
                       style={{
                         transitionDuration:
                           currentIndex === index ? `${collapseDelay}ms` : "0s",
                       }}
                     ></div>
                   </div>
-                  <h2 className="text-xl font-bold">{item.title}</h2>
+                  <h2 className="text-xl font-bold pb-2">{item.title}</h2>
                   <p className="mx-0 max-w-sm text-balance text-sm">
                     {item.subtitle}
                   </p>

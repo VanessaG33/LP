@@ -91,7 +91,7 @@ export default async function Home() {
           {home.image && (
             <Image src={home.image} alt={home.title} width={380} height={65} />
           )}
-          <div className="lg:max-w-[700px] h2 flex gap-2 items-center flex-wrap mt-[35px] lg:mb-[32px]">
+          <div className="lg:max-w-[700px] h2-title flex gap-2 items-center flex-wrap mt-[35px] lg:mb-[32px]">
             <p>Lance ta</p> <p className="highlighted-text">conciergerie</p>
             <p>Airbnb en 8 semaines et signe</p>
             <p> ton premier client avec </p>
@@ -100,7 +100,7 @@ export default async function Home() {
           <div className="mt-2 text-[18px]">
             <PortableText value={home.description} />
           </div>
-          <div className="mt-4 flex gap-8 flex-wrap">
+          <div className="mt-4 flex gap-3 lg:gap-8 flex-wrap">
             {home.bullets.map((bullet, index) => (
               <div key={index} className="flex items-center gap-2">
                 <Image
@@ -150,7 +150,7 @@ export default async function Home() {
               className="mt-6"
             />
           )}
-          <div className="pt-6 lg:pt-none mt-1 flex gap-1">
+          <div className="pt-3 lg:pt-none mt-1 flex gap-1">
             <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
             <p className="text-sm lg:text-base text-black">{trustme.text}</p>
           </div>
@@ -168,15 +168,15 @@ export default async function Home() {
 
       <div className="mt-[130px] flex flex-col justify-center items-center">
         <div className="flex gap-2 items-center flex-col lg:flex-row  ">
-          <p className="h4">
+          <p className="h2">
             {obstacles.title.split(" ").slice(0, -2).join(" ")}
           </p>
-          <p className="h4 highlighted-text">
+          <p className="h2 highlighted-text">
             {obstacles.title.split(" ").slice(-2).join(" ")}
           </p>
         </div>
 
-        <div className="p1 px-4 lg:px-none mt-6 text-center">
+        <div className="p1 px-8 lg:px-none mt-6 text-center">
           <PortableText value={obstacles.description} />
         </div>
         <div className="flex gap-[32px] mt-[32px] lg:mt-[70px] flex-col lg:flex-row">
@@ -279,7 +279,11 @@ export default async function Home() {
             <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
             <p className="text-white">{trustme.text}</p>
           </div>
-          <p className="h4 mt-[35px] text-center lg:text-left ">{avis.title}</p>
+          <div className="flex mt-[35px] justify-center text-center lg:text-left flex-wrap gap-2 items-center">
+            <p className="h2">Ceux qui ont choisi</p>
+            <p className="h2 highlighted-text">la méthode 8x8</p>
+            <p className="h2">en parlent…</p>
+          </div>
           <div className=" lg:px-none flex flex-col lg:flex-row gap-[40px] justify-center mt-[30px]">
             <Testimonials data={avis.testimonials} />
             <div className="px-4 lg:px-none mt-[30px] lg:w-[400px] h-[650px]">
@@ -294,7 +298,7 @@ export default async function Home() {
       <div id="price"></div>
       <Pricing price={priceData} />
       <div id="faq"></div>
-      <div className="px-4 lg:px-none flex flex-col lg:flex-row justify-center items-center gap-[20px] lg:gap-[100px] mb-[100px]">
+      <div className="px-4 lg:px-none flex flex-col lg:flex-row justify-center items-center gap-[20px] mt-[100px] lg:mt-0 lg:gap-[100px] mb-[100px]">
         <div className="max-w-[750px] ">
           <div className="flex flex-wrap gap-2 items-center">
             <p className="h2">
@@ -330,12 +334,12 @@ export default async function Home() {
           <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
           <p>{trustme.text}</p>
         </div>
-        <p className="h2 mt-6">{startNow.title}</p>
-        <div className="mt-[20px] text-center max-w-[790px]">
+        <p className="h2 mt-10">{startNow.title}</p>
+        <div className="mt-[30px] text-center max-w-[790px]">
           <PortableText value={startNow.description} />
         </div>
         <Link href="#call">
-          <button id="call" className="white-btn mt-6">
+          <button id="call" className="white-btn mt-10">
             {startNow.buttonText}
           </button>
         </Link>

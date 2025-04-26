@@ -11,7 +11,7 @@ import { PortableText } from "@portabletext/react";
 
 export default function Faq({ data }: { data: FaqQuestion[] }) {
   return (
-    <section className="bg-muted dark:bg-background lg:py-20">
+    <section className="bg-muted dark:bg-background lg:py-20 lg:w-[570px] max-w-[570px]">
       <Accordion type="single" collapsible className="w-full space-y-2">
         {data.map((item, index) => (
           <AccordionItem
@@ -25,7 +25,7 @@ export default function Faq({ data }: { data: FaqQuestion[] }) {
               </div>
             </AccordionTrigger>
             <AccordionContent className="pb-5">
-              <div className="px-9">
+              <div className="">
                 <PortableText value={item.answer} />
               </div>
             </AccordionContent>
