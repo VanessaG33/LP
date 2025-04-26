@@ -360,9 +360,7 @@ export default async function Home() {
           <PortableText value={startNow.description} />
         </div>
         <Link href="#call">
-          <button id="call" className="white-btn mt-10">
-            {startNow.buttonText}
-          </button>
+          <button className="white-btn mt-10">{startNow.buttonText}</button>
         </Link>
       </div>
       <div className="mb-[150px] flex-col items-center hidden lg:flex mt-[150px] gap-[130px] justify-center">
@@ -400,6 +398,7 @@ export default async function Home() {
           <IClosed />
         </div>
       </div>
+      <div id="call"></div>
       <div className="px-4 flex flex-col lg:hidden mt-[120px]">
         <div className="flex whitespace-nowrap items-center justify-center lg:justify-start">
           <p className="h2 ">
