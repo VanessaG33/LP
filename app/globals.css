@@ -18,6 +18,11 @@ html {
   }
 }
 
+img {
+  user-select: none;
+  object-fit: cover;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
