@@ -45,7 +45,7 @@ export default function Nav() {
                 aria-label="home"
                 className="flex items-center space-x-2"
               >
-                <Image src={"/logo.svg"} width={50} height={50} alt="Logo" />
+                <Image src={"/logo.png"} width={50} height={50} alt="Logo" />
               </Link>
 
               <button

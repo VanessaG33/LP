@@ -90,7 +90,7 @@ export default async function Home() {
         <div className="w-full lg:max-w-[735px] flex flex-col items-start lg:items-center lg:block">
           {home.image && (
             <Image
-              src={"/test.png"}
+              src={home.image}
               alt={home.title}
               width={380}
               height={65}
@@ -166,8 +166,8 @@ export default async function Home() {
               className="mt-6"
             />
           )}
-          <div className="pt-3 lg:pt-none mt-1 flex gap-1">
-            <Image src={"/stars.svg"} alt={"stars"} width={78} height={14} />
+          <div className="pt-3 items-center  lg:pt-none mt-1 flex gap-1">
+            <Image src={"/stars.svg"} alt={"stars"} width={78} height={16} />
             <p className="text-sm lg:text-base text-black">{trustme.text}</p>
           </div>
         </div>
