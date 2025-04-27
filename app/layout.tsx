@@ -9,7 +9,7 @@ const nunito = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "La conciergerie",
+  title: "L’école des conciergeries",
   description: "Developed by LaLanding",
 };
 

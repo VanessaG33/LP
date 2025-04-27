@@ -9,7 +9,7 @@ const menuItems = [
   { name: "Fonctionnement", href: "#roadmap" },
   { name: "Résultat accompagnement", href: "#results" },
   { name: "Contenu", href: "#price" },
-  { name: "A propos", href: "#faq" },
+  { name: "À propos", href: "#faq" },
 ];
 
 export default function Nav() {
