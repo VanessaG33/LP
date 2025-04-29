@@ -119,3 +119,22 @@ export const howItWorksQuery = groq`*[_type == "howItWorks"][0] {
   buttonText,
   "image": image.asset->url
 }`;
+
+export const testimonialsQuery = groq`*[_type == "testimonialsSection"][0]{
+  topButton,
+  title1,
+  title2,
+  videos[]{
+    video{
+      asset->{
+        _id,
+        url,
+        originalFilename,
+        mimeType
+      }
+    },
+    name,
+    job
+  }
+}
+`;

@@ -30,11 +30,13 @@ import {
   Offre,
   RoadmapType,
   StartNow,
+  TestimonialsSection,
   TrustMe,
 } from "@/sanity/lib/type";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
+import VideoCarousel from "@/components/VideoCarousel";
 
 export const revalidate = 10;
 
@@ -82,6 +84,11 @@ export default async function Home() {
   const howItWorks: HowItWorks = await sanityFetch({
     query: howItWorksQuery,
     tags: ["howItWorks"],
+  });
+
+  const testimonials: TestimonialsSection = await sanityFetch({
+    query: "testimonials",
+    tags: ["testimonials"],
   });
 
   return (
@@ -363,6 +370,10 @@ export default async function Home() {
           <button className="white-btn mt-10">{startNow.buttonText}</button>
         </Link>
       </div>
+      <div>
+        {/*{testimonials?.videos && <VideoCarousel videos={testimonials.videos} />}*/}
+      </div>
+
       <div className="mb-[150px] flex-col items-center hidden lg:flex mt-[150px] gap-[130px] justify-center">
         <div className="lg:max-w-[600px]">
           <div className="flex justify-center flex-wrap flex-col lg:flex-row gap-2 items-center">

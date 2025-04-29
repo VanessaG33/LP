@@ -117,3 +117,22 @@ export interface HowItWorks {
   steps: HowItWorksStep[];
   buttonText: string;
 }
+
+interface TestimonialVideo {
+  video: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+  };
+  name: string;
+  job: string;
+}
+
+export interface TestimonialsSection {
+  topButton: string;
+  title1: string;
+  title2: string;
+  videos: TestimonialVideo[];
+  ctaButton: string;
+}

@@ -9,6 +9,7 @@ import { offre } from "./offre";
 import roadmap from "./roadmap";
 import { startNow } from "./startNow";
 import trustme from "./trustme";
+import { testimonials } from "./testimonials";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     faq,
     startNow,
     howItWorks,
+    testimonials,
   ],
 };
