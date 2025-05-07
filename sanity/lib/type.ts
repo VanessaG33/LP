@@ -94,6 +94,7 @@ export interface FaqType {
 }
 
 export interface StartNow {
+  full: boolean;
   title: string;
   description: PortableTextBlock[];
   buttonText: string;
@@ -101,6 +102,12 @@ export interface StartNow {
   description2: PortableTextBlock[];
   features: string[];
   calendly: string;
+  titreComplet: string;
+  descriptionComplet: string;
+  pointsComplet: string[];
+  timeLeft: string;
+  buttonTextComplet: string;
+  ctaComplet: string;
 }
 
 export interface HowItWorksStep {
@@ -118,21 +125,10 @@ export interface HowItWorks {
   buttonText: string;
 }
 
-interface TestimonialVideo {
-  video: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-  };
-  name: string;
-  job: string;
-}
-
 export interface TestimonialsSection {
   topButton: string;
   title1: string;
   title2: string;
-  videos: TestimonialVideo[];
+  videos: string[];
   ctaButton: string;
 }

@@ -11,11 +11,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: {
-    video: any;
-    name: string;
-    job: string;
-  }[];
+  items: string[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
@@ -62,7 +58,6 @@ export const InfiniteMovingCards = ({
       video.pause();
     }
   };
-
   return (
     <div
       ref={containerRef}
@@ -79,58 +74,44 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
-        {[...items, ...items].map((item, index) => (
-          <li
-            className="shadow-[#ffffff50] shadow w-[280px] overflow-hidden relative rounded-2xl"
-            key={`${item.name}-${index}`}
-          >
-            <video
-              poster={item.video.asset.url}
-              className="block lg:hidden w-full h-full rounded-2xl"
-              src={item.video.asset.url}
-              muted
-              loop
-              data-name={item.name}
-              onClick={(e) =>
-                handlePlayPause(e.currentTarget, `${item.name}-${index}`)
-              }
-            ></video>
-            <video
-              className="hidden lg:block w-full h-full rounded-2xl"
-              src={item.video.asset.url}
-              muted
-              loop
-              data-name={item.name}
-              onClick={(e) =>
-                handlePlayPause(e.currentTarget, `${item.name}-${index}`)
-              }
-            ></video>
+        {[...items, ...items].map((item, index) => {
+          const key = `${item}-${index}`;
+          const isPlaying = playingStates[key];
 
-            {!playingStates[`${item.name}-${index}`] && (
-              <button
-                className="absolute inset-0 flex items-center justify-center bg-black/30 transition duration-300"
-                onClick={(e) =>
-                  handlePlayPause(
-                    e.currentTarget.previousSibling,
-                    `${item.name}-${index}`,
-                  )
-                }
+          return (
+            <li
+              className="shadow-[#ffffff50] shadow w-[280px] overflow-hidden relative rounded-2xl"
+              key={key}
+            >
+              <div
+                className="relative cursor-pointer"
+                onClick={() => handlePlayPause(item, key)}
               >
-                <Image
-                  src="/icons/playBtn.svg"
-                  width={52}
-                  height={52}
-                  alt="play button"
-                />
-              </button>
-            )}
+                <iframe
+                  width="280"
+                  height="500"
+                  src={`https://www.youtube.com/embed/${item}?autoplay=${isPlaying ? 1 : 0}&mute=1&loop=1&playlist=${item}`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-2xl"
+                ></iframe>
 
-            <div className="flex flex-col gap-2 text-white absolute bottom-6 left-1/2 transform -translate-x-1/2">
-              <p className="text-center text-2xl">{item.name}</p>
-              <p className="text-center text-[18px]">{item.job}</p>
-            </div>
-          </li>
-        ))}
+                {!isPlaying && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition duration-300">
+                    <Image
+                      src="/icons/playBtn.svg"
+                      width={52}
+                      height={52}
+                      alt="play button"
+                    />
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

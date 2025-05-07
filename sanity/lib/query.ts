@@ -98,13 +98,20 @@ export const faqQuery = groq`*[_type == "faq"][0] {
 }`;
 
 export const startNowQuery = groq`*[_type == "startNow"][0] {
+	full,
   title,
   description,
   buttonText,
   title2,
   description2,
   features,
-  calendly
+  calendly,
+  titreComplet,
+  descriptionComplet,
+  pointsComplet,
+  timeLeft,
+  buttonTextComplet,
+  ctaComplet,
 }`;
 
 export const howItWorksQuery = groq`*[_type == "howItWorks"][0] {
@@ -120,21 +127,10 @@ export const howItWorksQuery = groq`*[_type == "howItWorks"][0] {
   "image": image.asset->url
 }`;
 
-export const testimonialsQuery = groq`*[_type == "testimonialsSection"][0]{
+export const testimonialsQuery = groq`*[_type == "testimonials"][0]{
   topButton,
   title1,
   title2,
-  videos[]{
-    video{
-      asset->{
-        _id,
-        url,
-        originalFilename,
-        mimeType
-      }
-    },
-    name,
-    job
-  }
+  videos[]
 }
 `;

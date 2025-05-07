@@ -19,6 +19,7 @@ import {
   offreQuery,
   roadmapQuery,
   startNowQuery,
+  testimonialsQuery,
   trustmeQuery,
 } from "@/sanity/lib/query";
 import {
@@ -37,6 +38,8 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 import VideoCarousel from "@/components/VideoCarousel";
+import Video3 from "@/components/Video3";
+import CountDown from "@/components/CountDown";
 
 export const revalidate = 10;
 
@@ -87,7 +90,7 @@ export default async function Home() {
   });
 
   const testimonials: TestimonialsSection = await sanityFetch({
-    query: "testimonials",
+    query: testimonialsQuery,
     tags: ["testimonials"],
   });
 
@@ -371,77 +374,142 @@ export default async function Home() {
         </Link>
       </div>
       <div>
-        {/*{testimonials?.videos && <VideoCarousel videos={testimonials.videos} />}*/}
+        <h1 className="text-center mt-20 h2">{testimonials?.title1}</h1>
+        {testimonials?.videos?.length > 3 ? (
+          <VideoCarousel videos={testimonials.videos} />
+        ) : (
+          <Video3 data={testimonials} />
+        )}
       </div>
 
       <div className="mb-[150px] flex-col items-center hidden lg:flex mt-[150px] gap-[130px] justify-center">
-        <div className="lg:max-w-[600px]">
-          <div className="flex justify-center flex-wrap flex-col lg:flex-row gap-2 items-center">
-            <p className="h2">
+        {startNow.full ? (
+          <div className="flex-col lg:flex-row flex gap-[60px] justify-center items-center">
+            <div className="lg:max-w-[675px]">
+              <h2 className="h2">{startNow.titreComplet}</h2>
+              <p className="mt-4 p1">{startNow.descriptionComplet}</p>
+              <div className="flex gap-4 mt-6">
+                {startNow.pointsComplet.map((feature, index) => (
+                  <div key={index} className="flex items-center gap-2 pb-4">
+                    <Image
+                      src="/icons/check.svg"
+                      alt={"check"}
+                      width={18}
+                      height={18}
+                    />
+                    <p>{feature}</p>
+                  </div>
+                ))}
+              </div>
+              <Link href={startNow.ctaComplet}>
+                <button className="white-btn mt-6">
+                  {startNow.buttonTextComplet}
+                </button>
+              </Link>
+            </div>
+            <CountDown date={startNow.timeLeft} />
+          </div>
+        ) : (
+          <>
+            <div className="lg:max-w-[600px]">
+              <div className="flex justify-center flex-wrap flex-col lg:flex-row gap-2 items-center">
+                <p className="h2">
+                  {startNow.title2.split(" ").slice(0, -3).join(" ")}
+                </p>
+                <p className="h2 highlighted-text">
+                  {startNow.title2.split(" ").slice(-3).join(" ")}
+                </p>
+              </div>
+
+              <div className="text-center p1 mt-[20px] ">
+                <PortableText value={startNow.description2} />
+              </div>
+              <div className="flex flex-wrap gap-6 justify-center mt-6 pb-4 border-b border-[#FFFFFFB2]">
+                {startNow.features.map((feature, index) => (
+                  <div key={index} className="flex items-center gap-2 pb-4">
+                    <Image
+                      src="/icons/check.svg"
+                      alt={"check"}
+                      width={18}
+                      height={18}
+                    />
+                    <p>{feature}</p>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <BrandsPrice />
+              </div>
+            </div>
+            <div className="w-full">
+              <IClosed />
+            </div>
+          </>
+        )}
+      </div>
+      <div id="call"></div>
+      {startNow.full ? (
+        <div className="flex-col mt-10 lg:flex-row flex gap-[60px] justify-center items-center lg:hidden">
+          <div className="lg:max-w-[675px]">
+            <h2 className="h2 text-center">{startNow.titreComplet}</h2>
+            <p className="mt-4 p1 text-center">{startNow.descriptionComplet}</p>
+            <div className="flex gap-4 mt-6 flex-col pl-2">
+              {startNow.pointsComplet.map((feature, index) => (
+                <div key={index} className="flex items-center gap-2 pb-4">
+                  <Image
+                    src="/icons/check.svg"
+                    alt={"check"}
+                    width={18}
+                    height={18}
+                  />
+                  <p>{feature}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <Link href={startNow.ctaComplet}>
+                <button className=" white-btn mt-6">
+                  {startNow.buttonTextComplet}
+                </button>
+              </Link>
+            </div>
+          </div>
+          <CountDown date={startNow.timeLeft} />
+        </div>
+      ) : (
+        <div className="px-4 flex flex-col lg:hidden mt-[120px]">
+          <div className="flex whitespace-nowrap items-center justify-center lg:justify-start">
+            <p className="h2 ">
               {startNow.title2.split(" ").slice(0, -3).join(" ")}
             </p>
             <p className="h2 highlighted-text">
               {startNow.title2.split(" ").slice(-3).join(" ")}
             </p>
           </div>
-
-          <div className="text-center p1 mt-[20px] ">
+          <div className="p1 mt-[20px] text-center lg:text-left">
             <PortableText value={startNow.description2} />
           </div>
-          <div className="flex flex-wrap gap-6 justify-center mt-6 pb-4 border-b border-[#FFFFFFB2]">
+          <div className="flex flex-wrap gap-4  mt-6 border-b border-[#FFFFFFB2] pb-4 justify-center">
             {startNow.features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-2 pb-4">
+              <div key={index} className="flex items-center gap-2 lg:pb-4">
                 <Image
                   src="/icons/check.svg"
                   alt={"check"}
                   width={18}
                   height={18}
                 />
-                <p>{feature}</p>
+                <p className="text-sm">{feature}</p>
               </div>
             ))}
           </div>
-          <div>
+          <div className="max-w-[90%]">
             <BrandsPrice />
           </div>
+          <div className="mt-10 w-full">
+            <IClosed />
+          </div>
         </div>
-        <div className="w-full">
-          <IClosed />
-        </div>
-      </div>
-      <div id="call"></div>
-      <div className="px-4 flex flex-col lg:hidden mt-[120px]">
-        <div className="flex whitespace-nowrap items-center justify-center lg:justify-start">
-          <p className="h2 ">
-            {startNow.title2.split(" ").slice(0, -3).join(" ")}
-          </p>
-          <p className="h2 highlighted-text">
-            {startNow.title2.split(" ").slice(-3).join(" ")}
-          </p>
-        </div>
-        <div className="p1 mt-[20px] text-center lg:text-left">
-          <PortableText value={startNow.description2} />
-        </div>
-        <div className="flex flex-wrap gap-4  mt-6 border-b border-[#FFFFFFB2] pb-4 justify-center">
-          {startNow.features.map((feature, index) => (
-            <div key={index} className="flex items-center gap-2 lg:pb-4">
-              <Image
-                src="/icons/check.svg"
-                alt={"check"}
-                width={18}
-                height={18}
-              />
-              <p className="text-sm">{feature}</p>
-            </div>
-          ))}
-        </div>
-        <div className="max-w-[90%]">
-          <BrandsPrice />
-        </div>
-        <div className="mt-10 w-full">
-          <IClosed />
-        </div>
-      </div>
+      )}
       <div className="flex flex-col items-center mt-[150px] lg:mt-0 pb-[150px]">
         <Image
           src={"/logo.svg"}

@@ -6,6 +6,11 @@ export const startNow = defineType({
   type: "document",
   fields: [
     {
+      name: "full",
+      title: "Complet ? ",
+      type: "boolean",
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
@@ -66,6 +71,37 @@ export const startNow = defineType({
     {
       name: "calendly",
       title: "Calendly Link",
+      type: "url",
+    },
+    {
+      name: "titreComplet",
+      title: "Titre Complet",
+      type: "string",
+    },
+    {
+      name: "descriptionComplet",
+      title: "Description Complet",
+      type: "string",
+    },
+    {
+      name: "pointsComplet",
+      title: "Description Complet",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
+      name: "timeLeft",
+      title: "Temps restant en jours",
+      type: "date",
+    },
+    {
+      name: "buttonTextComplet",
+      title: "Button Text Complet",
+      type: "string",
+    },
+    {
+      name: "ctaComplet",
+      title: "Cta lien",
       type: "url",
     },
   ],
