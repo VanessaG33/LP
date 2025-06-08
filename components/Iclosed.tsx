@@ -8,7 +8,7 @@ export default function IClosed() {
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (
-        event.origin === "https://appel-strategique-conciergerie.youcanbook.me"
+        event.origin === "https://audit-situation-conciergerie.youcanbook.me/"
       ) {
         if (iframeRef.current) {
           iframeRef.current.style.height = `${event.data}px`;
@@ -27,7 +27,7 @@ export default function IClosed() {
       <iframe
         ref={iframeRef}
         id="ycbm"
-        src="https://appel-strategique-conciergerie.youcanbook.me/?embed=true"
+        src="https://audit-situation-conciergerie.youcanbook.me/?embed=true"
         style={{
           width: "100%",
           height: "1000px", // valeur initiale
