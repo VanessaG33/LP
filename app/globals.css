@@ -140,6 +140,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Empêche le scroll horizontal */
+  }
   .h1 {
     font-size: 32px;
   }

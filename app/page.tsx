@@ -437,7 +437,7 @@ export default async function Home() {
                   </div>
                 ))}
               </div>
-              <div id="call">
+              <div>
                 <BrandsPrice />
               </div>
             </div>
@@ -447,7 +447,7 @@ export default async function Home() {
           </>
         )}
       </div>
-      <div></div>
+      <div id="call"></div>
       {startNow.full ? (
         <div className="flex-col mt-10 lg:flex-row flex gap-[60px] justify-center items-center lg:hidden">
           <div className="lg:max-w-[675px]">
